@@ -1,0 +1,2167 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "*"
+        ],
+        "additionalFields": {
+          "download": true
+        }
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        288
+      ],
+      "id": "138d458f-c4f3-44bf-aa38-6d36c4764b81",
+      "name": "Telegram Trigger",
+      "webhookId": "1ba0cf75-334b-4579-8d7a-ade4fc7f2123",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/start",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "a47ec0ce-f2f8-4abd-bfc9-7dbe4ddd5a1f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "start"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2acb94f1-c527-4937-b550-8718e633beb4",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "=/player",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "player"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "dbe71a7e-3a97-4553-865f-ae25199181f6",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "Player Stats",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "player"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "39236f24-2675-491a-a352-fbb890912aae",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/clan",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "clan"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "6620278f-cd2f-43ae-9e19-125b15fe3a10",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "Clan Info",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "clan"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1e0a5559-8287-4d69-bcfc-ee41918fc9ee",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/card",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "card"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "346365fe-4015-4c3f-adf0-18369eb22970",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "Card Info",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "card"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "9cee3acc-f062-4818-9d08-67366037a1c0",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/chests",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chests"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "d1bb85b3-35fe-4b62-8b40-b4ee8e5b56e3",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "Chests",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chests"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8bb19500-d01e-4264-b492-9373f5dc134d",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/help",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "help"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "06d6bf29-1517-445f-aae0-664498d6b135",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "Help",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "help"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "530b858f-e546-479b-9961-278b53ae6afd",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "^[A-Z0-9#]{3,15}$",
+                    "operator": {
+                      "type": "string",
+                      "operation": "regex"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "potential_tag"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "0237915b-9933-46eb-bc29-760c3e157d8b",
+                    "leftValue": "={{ $json.callback_query.data }}",
+                    "rightValue": "type_clan_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "clan"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "3316a129-0ac4-4eda-ac4d-b19097b2a8c4",
+                    "leftValue": "={{ $json.callback_query.data }}",
+                    "rightValue": "type_player_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "player"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a11bcba6-c788-4d6f-9e7c-5c47f933f882",
+                    "leftValue": "={{ $json.callback_query.data }}",
+                    "rightValue": "card_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "card_selected"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "708a9b81-4fff-4eab-abc7-180ee0a23bb0",
+                    "leftValue": "={{ $json.callback_query.data }}",
+                    "rightValue": "help_examples",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "help_examples"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b51a8092-50ae-4d16-9403-34f379202a52",
+                    "leftValue": "={{ $json.callback_query.data }}",
+                    "rightValue": "back_to_menu",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "back_to_menu"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        80
+      ],
+      "id": "84e353cd-46ea-4eeb-adbd-0a5fbfc2f8c5",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "=Hello  {{ $json.message.from.username }}",
+        "replyMarkup": "replyKeyboard",
+        "replyKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "👤 Player Stats",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "🏰 Clan Info",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "🎴 Card Info",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "📦 Chests",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "ℹ️ Help",
+                    "additionalFields": {}
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "replyKeyboardOptions": {
+          "resize_keyboard": true,
+          "one_time_keyboard": false
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        -288
+      ],
+      "id": "b13a7911-e6bd-4e4d-947c-18f1e8bd3119",
+      "name": "Send a text message",
+      "webhookId": "b65cad02-1ea5-4037-86d2-d952a476da22",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the message text\nconst messageText = $input.item.json.message.text;\nconst userId = $input.item.json.message.from.id;\n\n// Extract player tag\nlet playerTag = '';\n\n// Check if message starts with /player command\nif (messageText.startsWith('/player ')) {\n  // Direct command with tag: /player TAG\n  playerTag = messageText.replace('/player', '').trim();\n  \n} else if (messageText === '/player') {\n  // Just /player without tag - ask for it\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '👤 Please send me your player tag.\\n\\nExample: 2PP or #2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n  \n} else if (messageText.includes('Player Stats')) {\n  // Button clicked - ask for tag\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '👤 Please send me your player tag.\\n\\nExample: 2PP or #2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n  \n} else {\n  // Assume the message IS the player tag (user responding to our request)\n  playerTag = messageText.trim();\n}\n\n// Remove # if user included it\nplayerTag = playerTag.replace('#', '');\n\n// Check if tag is valid (basic validation)\nif (!playerTag || playerTag.length === 0) {\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'no_tag',\n      message: 'Please provide your player tag.\\n\\nUsage: /player TAG\\n\\nExample: /player 2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n}\n\n// Return the player tag for the next node\nreturn {\n  json: {\n    chat_id: $input.item.json.message.chat.id,\n    player_tag: playerTag.toUpperCase(),\n    original_message: $input.item.json.message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        656,
+        -96
+      ],
+      "id": "8f3d5f5b-e19e-4364-b16b-3039545e0301",
+      "name": "Player"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the message text\nconst messageText = $input.item.json.message.text;\n\n// Extract clan tag\nlet clanTag = '';\n\nif (messageText.startsWith('/clan ')) {\n  // Direct command with tag: /clan TAG\n  clanTag = messageText.replace('/clan', '').trim();\n  \n} else if (messageText === '/clan') {\n  // Just /clan without tag - ask for it\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '🏰 Please send me the clan tag.\\n\\nExample: 8P9PCVY9 or #8P9PCVY9\\n\\n💡 Find clan tag: Clan → Info → Copy Tag'\n    }\n  };\n  \n} else if (messageText.includes('Clan Info')) {\n  // Button clicked - ask for tag\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '🏰 Please send me the clan tag.\\n\\nExample: 8P9PCVY9 or #8P9PCVY9\\n\\n💡 Find clan tag: Clan → Info → Copy Tag'\n    }\n  };\n  \n} else {\n  // Assume the message IS the clan tag\n  clanTag = messageText.trim();\n}\n\n// Remove # if user included it\nclanTag = clanTag.replace('#', '');\n\n// Check if tag is valid\nif (!clanTag || clanTag.length === 0) {\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'no_tag',\n      message: 'Please provide a clan tag.\\n\\nUsage: /clan TAG\\n\\nExample: /clan 8P9PCVY9'\n    }\n  };\n}\n\n// Return the clan tag for the next node\nreturn {\n  json: {\n    chat_id: $input.item.json.message.chat.id,\n    clan_tag: clanTag.toUpperCase(),\n    original_message: $input.item.json.message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        384
+      ],
+      "id": "c226dd23-2d60-4cd9-aabd-0d10b208d504",
+      "name": "Clan"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d846d3ea-6b9a-465e-b0cb-fea1ed4c67a0",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": false
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        880,
+        -96
+      ],
+      "id": "98810127-70e1-47fb-b3f4-53ac28d93b21",
+      "name": "If Player"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d846d3ea-6b9a-465e-b0cb-fea1ed4c67a0",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": false
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        880,
+        384
+      ],
+      "id": "4d8f0634-c4e4-467e-b841-c0e77a6ba5af",
+      "name": "If Clan"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clashroyale.com/v1/clans/%23{{ $json.clan_tag }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImJmNjIwZGY0LTVjNjktNDY1My05NGQ4LTM0YTY3Y2ZkOWU2ZiIsImlhdCI6MTc2NjU3NDg3Niwic3ViIjoiZGV2ZWxvcGVyLzAwMWFmMjQ0LTc3M2ItYjY0Yy00M2RmLTQ1NmU4MWIxMDk0YiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIyMC4yMTguMjM4LjEyMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.0RgMuPgWPXr0N1Bvw0R8lWxjkdp44cFpn-SiYvfmb0goFcYeXSCyZxYN8VUEuTAOsJ7lSwl_TkR3uVrAVNMolg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1104,
+        576
+      ],
+      "id": "e5e10e65-8cc4-4a02-913a-60d84987707a",
+      "name": "HTTP Request Clan"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clashroyale.com/v1/players/%23{{ $json.player_tag }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImJmNjIwZGY0LTVjNjktNDY1My05NGQ4LTM0YTY3Y2ZkOWU2ZiIsImlhdCI6MTc2NjU3NDg3Niwic3ViIjoiZGV2ZWxvcGVyLzAwMWFmMjQ0LTc3M2ItYjY0Yy00M2RmLTQ1NmU4MWIxMDk0YiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIyMC4yMTguMjM4LjEyMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.0RgMuPgWPXr0N1Bvw0R8lWxjkdp44cFpn-SiYvfmb0goFcYeXSCyZxYN8VUEuTAOsJ7lSwl_TkR3uVrAVNMolg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1104,
+        96
+      ],
+      "id": "3e87f68d-1511-4a2a-840a-a6bd1e17cd94",
+      "name": "HTTP Request Player",
+      "alwaysOutputData": true,
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the API response\nconst player = $input.item.json;\n\n// Format the player stats message\nconst message = `\n👤 **${player.name}** (${player.tag})\n\n🏆 **Trophies**: ${player.trophies.toLocaleString()}\n📊 **Best Trophies**: ${player.bestTrophies.toLocaleString()}\n⭐ **Level**: ${player.expLevel}\n\n🎯 **Arena**: ${player.arena.name}\n🏅 **Wins**: ${player.wins.toLocaleString()}\n❌ **Losses**: ${player.losses.toLocaleString()}\n\n⚔️ **Battle Count**: ${player.battleCount.toLocaleString()}\n🎁 **Three Crown Wins**: ${player.threeCrownWins.toLocaleString()}\n\n${player.clan ? `🏰 **Clan**: ${player.clan.name}` : ''}\n${player.role ? `👑 **Role**: ${player.role}` : ''}\n`;\n\nreturn {\n  json: {\n    chat_id: $input.item.json.chat_id || $('Telegram Trigger').item.json.message.chat.id,\n    message: message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1552,
+        96
+      ],
+      "id": "e9d3292b-0399-4ec8-a570-20268e83dbee",
+      "name": "Code in JavaScript Player"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1104,
+        -144
+      ],
+      "id": "77e59eaf-9728-4119-aad6-15460dffc95a",
+      "name": "Send a text message player error",
+      "webhookId": "6e12cf92-e5d5-4324-9f63-9f3560f3efe3",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1104,
+        336
+      ],
+      "id": "95ddcd64-63c9-4331-8586-d3c23a2a4dc1",
+      "name": "Send a text message clan error",
+      "webhookId": "6e12cf92-e5d5-4324-9f63-9f3560f3efe3",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1776,
+        96
+      ],
+      "id": "a3f69571-d1a8-47d5-af00-7f6bfa89f1a2",
+      "name": "Send a text message player",
+      "webhookId": "2eb5a937-069b-4430-b03c-71e32114dc26",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1776,
+        576
+      ],
+      "id": "1bca2f2b-e2df-42be-befb-a5195b2b38f1",
+      "name": "Send a text message clan",
+      "webhookId": "70d299fd-9ab5-44e8-890e-030c912cc4ac",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const tag = $input.item.json.message.text.replace('#', '').toUpperCase();\nconst chatId = $input.item.json.message.chat.id;\n\n// Send a clarification message with inline keyboard\nreturn {\n  json: {\n    chat_id: chatId,\n    tag: tag,\n    ask_type: true,\n    message: `I found tag: *${tag}*\\n\\nIs this a player tag or clan tag?`\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        816
+      ],
+      "id": "716f9038-9777-4adc-9155-bf9372ace92f",
+      "name": "Code in JavaScript to clarify user request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const callbackData = $input.item.json.callback_query.data;\nconst tag = callbackData.replace('type_clan_', '');\nconst chatId = $input.item.json.callback_query.message.chat.id;\n\nreturn {\n  json: {\n    chat_id: chatId,\n    clan_tag: tag\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        624
+      ],
+      "id": "30a5d01d-5b56-48d1-ad5d-23796a1bfc16",
+      "name": "Code in JavaScript clan after callback"
+    },
+    {
+      "parameters": {
+        "jsCode": "const callbackData = $input.item.json.callback_query.data;\nconst tag = callbackData.replace('type_player_', '');\nconst chatId = $input.item.json.callback_query.message.chat.id;\n\nreturn {\n  json: {\n    chat_id: chatId,\n    player_tag: tag\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        144
+      ],
+      "id": "e8149826-a7cc-4ff5-a9c5-06a9eb13ec42",
+      "name": "Code in JavaScript player after callback"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the clan API response\nconst clanData = $input.item.json;\n\n// Get chat_id - try the callback code node first\nlet chatId;\n\ntry {\n  chatId = $('Code in JavaScript clan after callback').item.json.chat_id;\n} catch (e) {\n  // If that fails, it might be from a message flow, search for it\n  const allItems = $input.all();\n  for (let item of allItems) {\n    if (item.json.chat_id) {\n      chatId = item.json.chat_id;\n      break;\n    }\n  }\n}\n\n// Add chat_id at the TOP level\nconst result = {\n  chat_id: chatId,\n  ...clanData\n};\n\nreturn { json: result };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1328,
+        576
+      ],
+      "id": "322e3f53-a1bf-4e09-a77b-e57bb641e81a",
+      "name": "Preserve chat_id"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the clan API response\nconst clanData = $input.item.json;\n\n// Get chat_id - try the callback code node first\nlet chatId;\n\ntry {\n  chatId = $('Code in JavaScript player after callback').item.json.chat_id;\n} catch (e) {\n  // If that fails, it might be from a message flow, search for it\n  const allItems = $input.all();\n  for (let item of allItems) {\n    if (item.json.chat_id) {\n      chatId = item.json.chat_id;\n      break;\n    }\n  }\n}\n\n// Add chat_id at the TOP level\nconst result = {\n  chat_id: chatId,\n  ...clanData\n};\n\nreturn { json: result };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1328,
+        96
+      ],
+      "id": "8442e7cd-d4b6-40d6-987a-c0bfa96b517b",
+      "name": "Preserve chat_id1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the message text\nconst messageText = $input.item.json.message.text;\n\n// Extract card name\nlet cardName = '';\n\nif (messageText.startsWith('/card ')) {\n  // Direct command with card name: /card NAME\n  cardName = messageText.replace('/card', '').trim();\n  \n} else if (messageText === '/card') {\n  // Just /card without name - show card menu\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      show_card_menu: true\n    }\n  };\n  \n} else if (messageText.includes('Card Info')) {\n  // Button clicked - show card menu\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      show_card_menu: true\n    }\n  };\n  \n} else {\n  // Assume the message IS the card name (from custom input)\n  cardName = messageText.trim();\n}\n\n// Check if card name is provided\nif (!cardName || cardName.length === 0) {\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'no_card',\n      message: 'Please provide a card name.\\n\\nUsage: /card NAME\\n\\nExample: /card wizard'\n    }\n  };\n}\n\n// Return the card name for the next node\nreturn {\n  json: {\n    chat_id: $input.item.json.message.chat.id,\n    card_name: cardName.toLowerCase(),\n    original_message: $input.item.json.message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        1008
+      ],
+      "id": "eb908e95-eefa-412f-814f-d2ed65afdae9",
+      "name": "Code in JavaScript for card"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e1f5cda5-4ea3-4e30-873f-2cb1012ae73f",
+              "leftValue": "={{ $json.show_card_menu }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1088,
+        1008
+      ],
+      "id": "f95b2aba-b10b-49f3-b2ba-630016a9c61e",
+      "name": "If Show Card Menu"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "🎴 Choose a card to view details:",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🧙 Wizard",
+                    "additionalFields": {
+                      "callback_data": "card_wizard"
+                    }
+                  },
+                  {
+                    "text": "⚡ Fireball",
+                    "additionalFields": {
+                      "callback_data": "card_fireball"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🗡️ P.E.K.K.A",
+                    "additionalFields": {
+                      "callback_data": "card_pekka"
+                    }
+                  },
+                  {
+                    "text": "🤴 Mega Knight",
+                    "additionalFields": {
+                      "callback_data": "card_megaknight"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🐗 Hog Rider",
+                    "additionalFields": {
+                      "callback_data": "card_hogrider"
+                    }
+                  },
+                  {
+                    "text": "💀 Skeleton Army",
+                    "additionalFields": {
+                      "callback_data": "card_skeletonarmy"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🐉 Baby Dragon",
+                    "additionalFields": {
+                      "callback_data": "card_babydragon"
+                    }
+                  },
+                  {
+                    "text": "⚔️ Valkyrie",
+                    "additionalFields": {
+                      "callback_data": "card_valkyrie"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🏹 Arrows",
+                    "additionalFields": {
+                      "callback_data": "card_arrows"
+                    }
+                  },
+                  {
+                    "text": "⚡ Zap",
+                    "additionalFields": {
+                      "callback_data": "card_zap"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🏺 Goblin Barrel",
+                    "additionalFields": {
+                      "callback_data": "card_goblinbarrel"
+                    }
+                  },
+                  {
+                    "text": "🔥 Inferno Tower",
+                    "additionalFields": {
+                      "callback_data": "card_infernotower"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "✏️ Type card name instead",
+                    "additionalFields": {
+                      "callback_data": "card_custom_input"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1296,
+        912
+      ],
+      "id": "e9e94eef-ddbe-4909-a5bb-64d82b2f1581",
+      "name": "Send card selection menu",
+      "webhookId": "30c2150a-fd71-40f6-ac7b-17d4ced3252a",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const callbackData = $input.item.json.callback_query.data;\nconst chatId = $input.item.json.callback_query.message.chat.id;\n\n// Handle special case: user wants to type custom card name\nif (callbackData === 'card_custom_input') {\n  return {\n    json: {\n      chat_id: chatId,\n      error: 'ask_card',\n      message: '🎴 Type the card name in this format:\\n\\n`/card knight`\\n`/card ice spirit`\\n`/card mega minion`\\n\\nJust tap on any example above to copy it, then change the card name!'\n    }\n  };\n}\n\n// Extract card name from callback (e.g., \"card_wizard\" → \"wizard\")\nconst cardName = callbackData.replace('card_', '').replace(/_/g, ' ').toLowerCase();\n\nreturn {\n  json: {\n    chat_id: chatId,\n    card_name: cardName\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        1360
+      ],
+      "id": "d386a7af-01c5-46dd-b931-959c5bbeef29",
+      "name": "Code in JavaScript card after callback"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9971c9c4-f27b-43e5-a3ec-95c18ed52206",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1040,
+        1360
+      ],
+      "id": "ebfcebbb-4706-4068-a3ab-de1dc6862b8e",
+      "name": "If Card Callback Error"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1488,
+        1248
+      ],
+      "id": "ce61c5b4-c3a4-4545-beca-0b316ae4ebe8",
+      "name": "Send card error",
+      "webhookId": "dbe615eb-05cd-45d1-b1c5-df112b05eff7",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.clashroyale.com/v1/cards",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImJmNjIwZGY0LTVjNjktNDY1My05NGQ4LTM0YTY3Y2ZkOWU2ZiIsImlhdCI6MTc2NjU3NDg3Niwic3ViIjoiZGV2ZWxvcGVyLzAwMWFmMjQ0LTc3M2ItYjY0Yy00M2RmLTQ1NmU4MWIxMDk0YiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIyMC4yMTguMjM4LjEyMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.0RgMuPgWPXr0N1Bvw0R8lWxjkdp44cFpn-SiYvfmb0goFcYeXSCyZxYN8VUEuTAOsJ7lSwl_TkR3uVrAVNMolg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1488,
+        1440
+      ],
+      "id": "b5b502a0-a61c-4173-9a29-73945750a82a",
+      "name": "HTTP Request card"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all cards from API\nconst allCards = $input.item.json.items;\n\n// Get card_name and chat_id (preserved by the previous node)\nconst requestedCard = $input.item.json.card_name ? $input.item.json.card_name.toLowerCase() : null;\nconst chatId = $input.item.json.chat_id;\n\n// Safety check: if card_name wasn't found\nif (!requestedCard) {\n  return {\n    json: {\n      chat_id: chatId,\n      error: 'no_card_name',\n      message: '🎴 Please provide a card name.\\n\\nExample: /card wizard'\n    }\n  };\n}\n\n// Find the matching card (case-insensitive)\nconst card = allCards.find(c => {\n  if (!c.name) return false;\n  \n  const cardName = c.name.toLowerCase();\n  const searchTerm = requestedCard.replace(/\\s+/g, '');\n  const cardNameNoSpaces = cardName.replace(/\\s+/g, '');\n  \n  return cardName === requestedCard ||\n         cardName.includes(requestedCard) || \n         cardNameNoSpaces.includes(searchTerm);\n});\n\n// If card not found\nif (!card) {\n  return {\n    json: {\n      chat_id: chatId,\n      error: 'card_not_found',\n      message: `🎴 Card \"${requestedCard}\" not found.\\n\\nPlease check the spelling and try again.\\n\\nExample: /card wizard`\n    }\n  };\n}\n\n// Format the card info message\nconst message = `\n🎴 *${card.name}*\n\n${card.rarity ? `⭐ *Rarity*: ${card.rarity}` : ''}\n${card.elixirCost !== undefined ? `💎 *Elixir Cost*: ${card.elixirCost}` : ''}\n${card.type ? `🎯 *Type*: ${card.type}` : ''}\n\n${card.description || ''}\n\n${card.maxLevel ? `📊 *Max Level*: ${card.maxLevel}` : ''}\n${card.id ? `🆔 *Card ID*: ${card.id}` : ''}\n`;\n\nreturn {\n  json: {\n    chat_id: chatId,\n    message: message.trim()\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1936,
+        1440
+      ],
+      "id": "9342af7d-6a83-40c5-a8df-8b4dc869cb4d",
+      "name": "Code in JavaScript Card"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the API response\nconst clan = $input.item.json;\n\n// Get chat_id from the workflow items\nlet chatId;\n\nconst items = $input.all();\nfor (let item of items) {\n  if (item.json.chat_id) {\n    chatId = item.json.chat_id;\n    break;\n  }\n}\n\n// If chat_id wasn't found, there's an issue\nif (!chatId) {\n  throw new Error('chat_id not found in workflow');\n}\n\n// Format the clan info message\nconst message = `\n🏰 *${clan.name}* (${clan.tag})\n\n📝 *Description*: ${clan.description || 'No description'}\n\n👥 *Members*: ${clan.members}/50\n🏆 *Clan Score*: ${clan.clanScore.toLocaleString()}\n🏅 *Clan War Trophies*: ${clan.clanWarTrophies ? clan.clanWarTrophies.toLocaleString() : 'N/A'}\n\n🎯 *Type*: ${clan.type}\n📍 *Location*: ${clan.location ? clan.location.name : 'International'}\n🏆 *Required Trophies*: ${clan.requiredTrophies.toLocaleString()}\n\n${clan.badgeName ? `🛡️ *Badge*: ${clan.badgeName}` : ''}\n`;\n\nreturn {\n  json: {\n    chat_id: chatId,\n    message: message.trim()\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1552,
+        576
+      ],
+      "id": "5c24b21c-1b66-42b7-bb80-8e5d887ddd37",
+      "name": "Code in JavaScript clan"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "512c0e61-1472-4b5c-82d9-7537bf5ffb45",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2128,
+        1440
+      ],
+      "id": "527fa102-d571-4244-b642-757b1267ab5d",
+      "name": "If Card Found"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2400,
+        1424
+      ],
+      "id": "ff64a935-bc1e-4327-b6a7-2e464011210d",
+      "name": "Send card not found message",
+      "webhookId": "1f73bfe7-0419-4abb-9aff-f92765c77d40",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2400,
+        1632
+      ],
+      "id": "3f8c8f7a-cda9-4ced-96f2-c93e78657eeb",
+      "name": "Send a text message card",
+      "webhookId": "1f73bfe7-0419-4abb-9aff-f92765c77d40",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the cards API response\nconst cardsData = $input.item.json;\n\n// Get card_name and chat_id\nlet chatId;\nlet cardName;\n\n// Try to get from callback flow first\ntry {\n  chatId = $('Code in JavaScript card after callback').item.json.chat_id;\n  cardName = $('Code in JavaScript card after callback').item.json.card_name;\n} catch (e) {\n  // Not from callback, ignore\n}\n\n// If not found, try message flow\nif (!chatId || !cardName) {\n  try {\n    chatId = $('Code in JavaScript for card').item.json.chat_id;\n    cardName = $('Code in JavaScript for card').item.json.card_name;\n  } catch (e) {\n    // Still not found\n  }\n}\n\n// Last resort: search all items\nif (!chatId || !cardName) {\n  const allItems = $input.all();\n  for (let item of allItems) {\n    if (item.json.chat_id && !chatId) {\n      chatId = item.json.chat_id;\n    }\n    if (item.json.card_name && !cardName) {\n      cardName = item.json.card_name;\n    }\n    if (chatId && cardName) break;\n  }\n}\n\n// Debug logging (remove after testing)\nconsole.log('Found chatId:', chatId);\nconsole.log('Found cardName:', cardName);\n\n// Add card_name and chat_id at the TOP level\nconst result = {\n  chat_id: chatId,\n  card_name: cardName,\n  ...cardsData\n};\n\nreturn { json: result };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        1440
+      ],
+      "id": "aa980dc4-6d33-4aac-b724-b78aa2112b89",
+      "name": "Preserve card data"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "=👤 Player",
+                    "additionalFields": {
+                      "callback_data": "=type_player_{{ $json.tag }}"
+                    }
+                  },
+                  {
+                    "text": "🏰 Clan",
+                    "additionalFields": {
+                      "callback_data": "=type_clan_{{ $json.tag }}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1312,
+        768
+      ],
+      "id": "0576824d-29c5-4ee6-ac92-f1840f3e42c5",
+      "name": "Send a clarify text message",
+      "webhookId": "d71ef720-52ab-456d-9cd9-12d11fbbccc5",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the message text\nconst messageText = $input.item.json.message.text;\n\n// Extract player tag\nlet playerTag = '';\n\nif (messageText.startsWith('/chests ')) {\n  // Direct command with tag: /chests TAG\n  playerTag = messageText.replace('/chests', '').trim();\n  \n} else if (messageText === '/chests') {\n  // Just /chests without tag - ask for it\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '📦 Please send me your player tag.\\n\\nExample: 2PP or #2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n  \n} else if (messageText.includes('Chests')) {\n  // Button clicked - ask for tag\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'ask_tag',\n      message: '📦 Please send me your player tag.\\n\\nExample: 2PP or #2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n  \n} else {\n  // Assume the message IS the player tag\n  playerTag = messageText.trim();\n}\n\n// Remove # if user included it\nplayerTag = playerTag.replace('#', '');\n\n// Check if tag is valid\nif (!playerTag || playerTag.length === 0) {\n  return {\n    json: {\n      chat_id: $input.item.json.message.chat.id,\n      error: 'no_tag',\n      message: 'Please provide your player tag.\\n\\nUsage: /chests TAG\\n\\nExample: /chests 2PP\\n\\n💡 Find your tag: Profile → Settings → Copy Tag'\n    }\n  };\n}\n\n// Return the player tag for the next node\nreturn {\n  json: {\n    chat_id: $input.item.json.message.chat.id,\n    player_tag: playerTag.toUpperCase(),\n    original_message: $input.item.json.message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        848,
+        1696
+      ],
+      "id": "e72d2d38-5cca-4521-8800-d4785ea4aab8",
+      "name": "Code in JavaScript Chests"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1296,
+        1600
+      ],
+      "id": "c47072ed-946c-461d-baed-82d7213277ba",
+      "name": "Send a text message chests error",
+      "webhookId": "69e7a5be-878e-4718-b83f-f6d67053dc99",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clashroyale.com/v1/players/%23{{ $json.player_tag }}/upcomingchests",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImJmNjIwZGY0LTVjNjktNDY1My05NGQ4LTM0YTY3Y2ZkOWU2ZiIsImlhdCI6MTc2NjU3NDg3Niwic3ViIjoiZGV2ZWxvcGVyLzAwMWFmMjQ0LTc3M2ItYjY0Yy00M2RmLTQ1NmU4MWIxMDk0YiIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIyMC4yMTguMjM4LjEyMCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.0RgMuPgWPXr0N1Bvw0R8lWxjkdp44cFpn-SiYvfmb0goFcYeXSCyZxYN8VUEuTAOsJ7lSwl_TkR3uVrAVNMolg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1296,
+        1792
+      ],
+      "id": "a01ac6b0-0fb1-4fbb-bcbb-71793c108f27",
+      "name": "HTTP Request Chests"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the chests API response\nconst chestsData = $input.item.json;\n\n// Get chat_id\nlet chatId;\n\n// Try to get from callback flow first\ntry {\n  chatId = $('Code in JavaScript chests after callback').item.json.chat_id;\n} catch (e) {\n  // Not from callback, ignore\n}\n\n// If not found, try message flow\nif (!chatId) {\n  try {\n    chatId = $('Code in JavaScript Chests').item.json.chat_id;  // ← Fixed!\n  } catch (e) {\n    // Still not found\n  }\n}\n\n// Last resort: search all items\nif (!chatId) {\n  const allItems = $input.all();\n  for (let item of allItems) {\n    if (item.json.chat_id) {\n      chatId = item.json.chat_id;\n      break;\n    }\n  }\n}\n\n// Debug logging\nconsole.log('Found chatId:', chatId);\n\n// Add chat_id at the TOP level\nconst result = {\n  chat_id: chatId,\n  ...chestsData\n};\n\nreturn { json: result };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        1792
+      ],
+      "id": "a8cf815c-412d-47a5-bc68-5871137e0f1c",
+      "name": "Preserve chat_id chests"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the chests API response\nconst chests = $input.item.json.items || [];\nconst chatId = $input.item.json.chat_id;\n\n// Check if there are chests\nif (!chests || chests.length === 0) {\n  return {\n    json: {\n      chat_id: chatId,\n      message: '📦 No upcoming chests found for this player.'\n    }\n  };\n}\n\n// Format the first 10 upcoming chests\nconst chestList = chests.slice(0, 10).map((chest, index) => {\n  return `${index + 1}. *${chest.name}* (+${chest.index})`;\n}).join('\\n');\n\nconst message = `\n📦 *Upcoming Chests*\n\n${chestList}\n\n💡 The number in parentheses shows how many chests until you get it.\n`;\n\nreturn {\n  json: {\n    chat_id: chatId,\n    message: message.trim()\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1744,
+        1792
+      ],
+      "id": "279c6beb-c0c5-448a-9388-35ee7b3200e0",
+      "name": "Code in JavaScript Chests1"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1968,
+        1792
+      ],
+      "id": "81fa0909-fc9f-4195-9f83-3a1e713afb86",
+      "name": "Send a text message chests",
+      "webhookId": "166dec43-97b8-473e-bd89-e5a2ddb533c4",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8f958144-4fc5-4e39-9c82-7a5722c67e59",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1072,
+        1696
+      ],
+      "id": "91ab9ca1-7d50-405d-88c2-97b3e2e3a5c3",
+      "name": "If Chests"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "ℹ️ *Clash Royale Stats Bot*\n\n*Commands:*\n\n👤 `/player TAG` - Player statistics\n🏰 `/clan TAG` - Clan information  \n🎴 `/card NAME` - Card details\n📦 `/chests TAG` - Upcoming chests\nℹ️ `/help` - Show this message\n\n*Examples:*\n`/player 2PP`\n`/clan 2CCCP`\n`/card wizard`\n`/chests 2PP`\n\n*Tips:*\n- Tags can include or omit the #\n- Find your tag: Clash Royale → Profile → Settings\n- Use menu buttons for quick access\n\nNeed help? Just type a command to try it! 🎮",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "📖 View Examples",
+                    "additionalFields": {
+                      "callback_data": "help_examples"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🔙 Back to Menu",
+                    "additionalFields": {
+                      "callback_data": "back_to_menu"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        1872
+      ],
+      "id": "cd00c464-4b47-4acb-8de2-89d36c3d86ab",
+      "name": "Send help message",
+      "webhookId": "80c2203b-f5cc-4713-a603-48308fda07ff",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.callback_query.message.chat.id }}",
+        "text": "📖 *Command Examples*\n\n*Player Stats:*\n`/player 2PP`\n`/player #20JGP2UJLR`\n\n*Clan Info:*\n`/clan 2CCCP`\n`/clan #8P9PCVY9`\n\n*Card Details:*\n`/card wizard`\n`/card mega knight`\n`/card pekka`\n\n*Upcoming Chests:*\n`/chests 2PP`\n`/chests #20JGP2UJLR`\n\n💡 Just tap any example to copy it, then modify the tag/card name!",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        672,
+        800
+      ],
+      "id": "dd6883a9-8be0-4be5-a7a3-952c08d95629",
+      "name": "Send help examples",
+      "webhookId": "600d72e0-3e97-4e1f-8a44-469734fac893",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.callback_query.message.chat.id }}",
+        "text": "👋 Welcome back!\n\nUse the buttons below or type a command:\n\n👤 /player - Player statistics\n🏰 /clan - Clan information\n🎴 /card - Card details\n📦 /chests - Upcoming chests\nℹ️ /help - Show help",
+        "replyMarkup": "replyKeyboard",
+        "replyKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "👤 Player Stats",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "🏰 Clan Info",
+                    "additionalFields": {}
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🎴 Card Info",
+                    "additionalFields": {}
+                  },
+                  {
+                    "text": "📦 Chests",
+                    "additionalFields": {}
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "ℹ️ Help",
+                    "additionalFields": {}
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "replyKeyboardOptions": {
+          "resize_keyboard": true
+        },
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        832,
+        2272
+      ],
+      "id": "12e52e7d-d61e-4156-92b5-13a1694c636b",
+      "name": "Send back to menu",
+      "webhookId": "16e13868-840f-4eaa-86c9-6640892ab44c",
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "callback",
+        "queryId": "={{ $json.callback_query.id }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        832,
+        2464
+      ],
+      "id": "1a1f3c62-73bb-4ede-9af9-618ac648e146",
+      "name": "Answer Query a callback back to menu",
+      "webhookId": "0f2159b5-0851-4844-bbf5-aff2cd9f2e52",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "callback",
+        "queryId": "={{ $json.callback_query.id }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        2032
+      ],
+      "id": "cdbe8863-79a7-4f44-90d4-23ae1893906b",
+      "name": "Answer Query a callback send help",
+      "webhookId": "fa853b2b-bcc6-43aa-a3b6-86f6230fb5ba",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "l6sNpXnvs8M53ccH",
+          "name": "Telegram account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Player",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Player",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clan",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clan",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript for card",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript for card",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript Chests",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript Chests",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send help message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send help message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript to clarify user request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript clan after callback",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript player after callback",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript card after callback",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send help examples",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Answer Query a callback send help",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send back to menu",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Answer Query a callback back to menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        []
+      ]
+    },
+    "Player": {
+      "main": [
+        [
+          {
+            "node": "If Player",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clan": {
+      "main": [
+        [
+          {
+            "node": "If Clan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Player": {
+      "main": [
+        [
+          {
+            "node": "Send a text message player error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request Player",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Clan": {
+      "main": [
+        [
+          {
+            "node": "Send a text message clan error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request Clan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request Clan": {
+      "main": [
+        [
+          {
+            "node": "Preserve chat_id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request Player": {
+      "main": [
+        [
+          {
+            "node": "Preserve chat_id1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript Player": {
+      "main": [
+        [
+          {
+            "node": "Send a text message player",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message clan error": {
+      "main": [
+        []
+      ]
+    },
+    "Send a text message player": {
+      "main": [
+        []
+      ]
+    },
+    "Send a text message clan": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript to clarify user request": {
+      "main": [
+        [
+          {
+            "node": "Send a clarify text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript clan after callback": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request Clan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript player after callback": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request Player",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preserve chat_id": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript clan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preserve chat_id1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript Player",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript for card": {
+      "main": [
+        [
+          {
+            "node": "If Show Card Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Show Card Menu": {
+      "main": [
+        [
+          {
+            "node": "Send card selection menu",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript card after callback": {
+      "main": [
+        [
+          {
+            "node": "If Card Callback Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Card Callback Error": {
+      "main": [
+        [
+          {
+            "node": "Send card error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send card error": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request card": {
+      "main": [
+        [
+          {
+            "node": "Preserve card data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript Card": {
+      "main": [
+        [
+          {
+            "node": "If Card Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript clan": {
+      "main": [
+        [
+          {
+            "node": "Send a text message clan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Card Found": {
+      "main": [
+        [
+          {
+            "node": "Send card not found message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preserve card data": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript Card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript Chests": {
+      "main": [
+        [
+          {
+            "node": "If Chests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request Chests": {
+      "main": [
+        [
+          {
+            "node": "Preserve chat_id chests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preserve chat_id chests": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript Chests1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript Chests1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message chests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Chests": {
+      "main": [
+        [
+          {
+            "node": "Send a text message chests error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request Chests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send help message": {
+      "main": [
+        []
+      ]
+    },
+    "Send back to menu": {
+      "main": [
+        []
+      ]
+    },
+    "Answer Query a callback send help": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d0bd567a9d2b5be5942125ecb9fe32d7cd91366919fb8a592dffd507543ec51e"
+  }
+}
